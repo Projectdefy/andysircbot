@@ -24,7 +24,7 @@ import virtualkeyboard as vkb
 # --------------------------------------------- Start Settings ----------------------------------------------------
 HOST = "irc.twitch.tv"                          # Hostname of the IRC-Server in this case twitch's
 PORT = 6667                                     # Default IRC-Port
-CHAN = "#daiphai"                               # Channelname = #{Nickname} Channel for the bot to be in
+CHAN = "#kenwayauditore"                               # Channelname = #{Nickname} Channel for the bot to be in
 NICK = "audebot"                                # Nickname = Twitch bot username
 PASS = "oauth:8dwhoduwuzl5b482l0duj4kxn11umi"   # www.twitchapps.com/tmi/ will help to retrieve the required authkey
 
@@ -86,43 +86,58 @@ def parse_message(msg):
         options = {'!test': command_test,
                    '!gamecam': switch_cam1,
                    '!facecam': switch_cam2,
-                   '!brbcam': switch_cam3}
+                   '!brbcam': switch_cam3,
+                   '!elgatocam': switch_cam4,
+                   '!camcommands': command_list}
         if msg[0] in options:
             options[msg[0]]()
 # --------------------------------------------- End Helper Functions -----------------------------------------------
 
 # --------------------------------------------- Start Command Functions --------------------------------------------
 def command_test():
-    send_message(CHAN, 'Testing command')
+    send_message(CHAN, 'Testing command! My master is KenwayAuditore Senpai! REEEEE!')
 
-# Sends the keyboard input CTRL + Shift + F3
+def command_list():
+    send_message(CHAN, 'The current commands available are: !gamecam, !facecam, !brbcam, and !elgatocam')
+
+# Sends the keyboard input CTRL + Shift + 5
 def switch_cam1():
     send_message(CHAN, 'SWITCHING TO GAMECAM SCENE')
-    vkb.SendInput(vkb.Keyboard(vkb.VK_CONTROL), vkb.Keyboard(vkb.VK_SHIFT), vkb.Keyboard(vkb.VK_F3))
+    vkb.SendInput(vkb.Keyboard(vkb.VK_CONTROL), vkb.Keyboard(vkb.VK_SHIFT), vkb.Keyboard(vkb.KEY_5))
     time.sleep(0.2)
     vkb.SendInput(vkb.Keyboard(vkb.VK_CONTROL, vkb.KEYEVENTF_KEYUP),
                   vkb.Keyboard(vkb.VK_SHIFT, vkb.KEYEVENTF_KEYUP),
-                  vkb.Keyboard(vkb.VK_F3,  vkb.KEYEVENTF_KEYUP))
+                  vkb.Keyboard(vkb.KEY_5,  vkb.KEYEVENTF_KEYUP))
     time.sleep(0.2)
 
-# Sends the keyboard input CTRL + Shift + F4
+# Sends the keyboard input CTRL + Shift + 7
 def switch_cam2():
     send_message(CHAN, 'SWITCHING TO FACECAM SCENE')
-    vkb.SendInput(vkb.Keyboard(vkb.VK_CONTROL), vkb.Keyboard(vkb.VK_SHIFT), vkb.Keyboard(vkb.VK_F4))
+    vkb.SendInput(vkb.Keyboard(vkb.VK_CONTROL), vkb.Keyboard(vkb.VK_SHIFT), vkb.Keyboard(vkb.KEY_7))
     time.sleep(0.2)
     vkb.SendInput(vkb.Keyboard(vkb.VK_CONTROL, vkb.KEYEVENTF_KEYUP),
                   vkb.Keyboard(vkb.VK_SHIFT, vkb.KEYEVENTF_KEYUP),
-                  vkb.Keyboard(vkb.VK_F4,  vkb.KEYEVENTF_KEYUP))
+                  vkb.Keyboard(vkb.KEY_7,  vkb.KEYEVENTF_KEYUP))
     time.sleep(0.2)
 
-# Sends the keyboard input CTRL + Shift + F5
+# Sends the keyboard input CTRL + Shift + 3
 def switch_cam3():
     send_message(CHAN, 'SWITCHING TO BRB SCENE')
-    vkb.SendInput(vkb.Keyboard(vkb.VK_CONTROL), vkb.Keyboard(vkb.VK_SHIFT), vkb.Keyboard(vkb.VK_F5))
+    vkb.SendInput(vkb.Keyboard(vkb.VK_CONTROL), vkb.Keyboard(vkb.VK_SHIFT), vkb.Keyboard(vkb.KEY_3))
     time.sleep(0.2)
     vkb.SendInput(vkb.Keyboard(vkb.VK_CONTROL, vkb.KEYEVENTF_KEYUP),
                   vkb.Keyboard(vkb.VK_SHIFT, vkb.KEYEVENTF_KEYUP),
-                  vkb.Keyboard(vkb.VK_F5,  vkb.KEYEVENTF_KEYUP))
+                  vkb.Keyboard(vkb.KEY_3,  vkb.KEYEVENTF_KEYUP))
+    time.sleep(0.2)
+
+# Sends the keyboard input CTRL + Shift + 6
+def switch_cam4():
+    send_message(CHAN, 'SWITCHING TO ELGATO SCENE')
+    vkb.SendInput(vkb.Keyboard(vkb.VK_CONTROL), vkb.Keyboard(vkb.VK_SHIFT), vkb.Keyboard(vkb.KEY_6))
+    time.sleep(0.2)
+    vkb.SendInput(vkb.Keyboard(vkb.VK_CONTROL, vkb.KEYEVENTF_KEYUP),
+                  vkb.Keyboard(vkb.VK_SHIFT, vkb.KEYEVENTF_KEYUP),
+                  vkb.Keyboard(vkb.KEY_6, vkb.KEYEVENTF_KEYUP))
     time.sleep(0.2)
 
 # --------------------------------------------- End Command Functions ----------------------------------------------
@@ -130,7 +145,7 @@ def switch_cam3():
 
 # ------------------------------------ Let's the user know the bot is now running-----------------------------------
 print("Hello! Welcome to Andy\'s IRC bot!")
-print("The following commands that are implemented are: !gamecam, !facecam, and !brbcam")
+print("The following commands that are implemented are: !gamecam, !facecam, !brbcam, and !elgatocam")
 print("Please enjoy the user of this program LUL - Andy A.K.A. twitch.tv/DAIPHAI\n")
 # ------------------------------------------------------------------------------------------------------------------
 
